@@ -25,10 +25,10 @@ def accept_messages():
             for client in clients:
                 sended_message = client.recv(1024).decode()
                 print(sended_message)
-                if sended_message == "привіт":
-                    client.send("вітаю".encode())
-                elif sended_message == "як справи?":
-                    client.send("усе добре, дякую!".encode())
+                if sended_message == "привет":
+                    client.send("Приветствую вас".encode())
+                elif sended_message == "как дела":
+                    client.send("Все хорошо спасибо!".encode())
                 elif sended_message == "да?":
                     client.send("да и ., нет ДА и !!!".encode())
                 else:
