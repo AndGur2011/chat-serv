@@ -2,11 +2,22 @@ import socket
 import threading
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("localhost", 1028))
+server.bind(("localhost", 4144))
 server.setblocking(False)
 server.listen(5)
 print("Работа")
 clients = []
+sms = ""
+def send():
+    global sms
+
+    try:
+        sms = input("->")
+        for client in clients:
+
+            client.send(sms.encode())
+    except:
+        pass
 
 def accept_messages():
     while True:
