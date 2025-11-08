@@ -4,8 +4,8 @@ from customtkinter import *
 from PIL import Image
 
 window = CTk()
-window.title("Чатик 1.6")
-window.geometry("1080x600")
+window.title("Чатик 2.3")
+window.geometry("1080x700")
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(("192.168.0.104", 5050))
 
@@ -14,10 +14,10 @@ def send():
     enter.delete(0, END)
 
     textbox.configure(state="normal")
-    #textbox.insert(END,"[Andreww]: ")
+    #textbox.insert(END, sms + "\n")
     textbox.configure(state = "disabled")
 
-    client.send(f"[Andreww]: {sms}".encode())
+    client.send(f"[Andreww]:{sms}".encode())
 
 
 
@@ -48,7 +48,7 @@ bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 chat_frame = CTkFrame(window, fg_color="#00716a", corner_radius=15, width=700, height=350,)  # рамка для чата
 chat_frame.place(x=190, y=40)
 chat_frame.pack_propagate(False)
-textbox = CTkTextbox(chat_frame, fg_color="#FFFFFF",state = "disabled", width = 650, height = 300)
+textbox = CTkTextbox(chat_frame, fg_color="#000000",state = "disabled", width = 650, height = 300)
 textbox.pack(pady = 20)
 
 enter = CTkEntry(window, width=850, height=50, placeholder_text="Введіть текст...", corner_radius=10, font=("Arial", 16))  # поле ввода
